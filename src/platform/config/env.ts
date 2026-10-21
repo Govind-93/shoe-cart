@@ -6,7 +6,7 @@ const schema = z.object({
   LOG_LEVEL: z
     .enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"])
     .default("info"),
-  DATABASE_URL: z.string().optional(),
+  DATABASE_URL: z.string().min(1),
   SHUTDOWN_TIMEOUT_MS: z.coerce.number().int().positive().default(20_000),
 });
 
